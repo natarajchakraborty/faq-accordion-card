@@ -1,0 +1,24 @@
+{
+  "name": "faq-accordion-card",
+  "version": "1.0.0",
+  "description": "![Design preview for the FAQ accordion card coding challenge](./design/desktop-preview.jpg)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natarajchakraborty/faq-accordion-card.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natarajchakraborty/faq-accordion-card/issues"
+  },
+  "homepage": "https://github.com/natarajchakraborty/faq-accordion-card#readme",
+  "dependencies": {
+    "autoprefixer": "^10.2.6",
+    "postcss": "^8.3.5",
+    "tailwindcss": "^2.2.0"
+  }
+}
