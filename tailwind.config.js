@@ -2,22 +2,28 @@ module.exports = {
   purge: [],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    gradientColorStops: theme => ({
+      ...theme('colors'),
+      'start': '#af67e9',
+      'stop': '#6565e7'
+     }),
     extend : {
       fontFamily: {
         'body': ['Kumbh Sans']
       },
       fontSize: {
-        'base18': '1.125rem'
+        'base12': '0.75rem'
       },
       screens: {
         'xsm': '375px',
         '1xl': '1440px'
       },
       colors: {
-        darkcyan: '#19a2ae',
-        darkDesaturatedBlue: '#2d3248',
-        darkGrayishBlue: '#6a6f81',
-        darkGray: '#969696'
+        veryDarkGrayishBlue: '#4a4b5e',
+        darkGrayishlue: '#787887',
+        lightGrayishBlue: '#e7e7e9',
+        veryDarkDesaturatedBlue: '#1d1e35',
+        softRed: '#f47c57'
       }
     },
   },
