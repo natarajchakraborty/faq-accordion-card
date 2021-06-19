@@ -1,41 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  
+
   <title>Frontend Mentor | FAQ Accordion Card</title>
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
-   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
   </style>
+   <script>
+      let shareOpen = false;
+      document.addEventListener("DOMContentLoaded", (event) => {
+        const membersButton = document.querySelector('#members');
+
+        shareButton.addEventListener('click', () => {
+          const bottomBar = document.querySelector('#bottomBar').children[0];
+          const tooltip = document.querySelector("#tooltip");
+          if (screen.width < 768) {
+            if (!shareOpen) {
+              // Toggle classes
+              let classesToAddToRoot = ['bg-darkGrayishBlue'];
+              bottomBar.classList.add(...classesToAddToRoot);
+              bottomBar.children[0].classList.add('md:hidden');
+              bottomBar.children[0].classList.remove('hidden');
+              bottomBar.children[1].classList.add('hidden');
+              bottomBar.children[2].classList.add('hidden');
+              shareOpen = true;
+            } else {
+              // Toggle classes
+              let classesToRemoveFromRoot = ['bg-darkGrayishBlue'];
+              bottomBar.classList.remove(...classesToRemoveFromRoot);
+              bottomBar.children[0].classList.add('md:hidden');
+              bottomBar.children[0].classList.add('hidden');
+              bottomBar.children[1].classList.remove('hidden');
+              bottomBar.children[2].classList.remove('hidden');
+              shareOpen = false;
+            }
+          } else {
+            if(!shareOpen) {
+              tooltip.classList.remove('hidden');
+              shareOpen = true;
+            } else {
+              tooltip.classList.add('hidden');
+              shareOpen = false;
+            }
+          }
+        });
+      });
+    </script>
 </head>
-<body>
-  How many team members can I invite?
-  You can invite up to 2 additional users on the Free plan. There is no limit on 
-  team members for the Premium plan.
 
-  What is the maximum file upload size?
-  No more than 2GB. All files in your account must fit your allotted storage space.
+<body
+  class="font-body text-12 leading-relaxed tracking-wide bg-gradient-to-b from-start to-stop bg-no-repeat min-h-screen">
+  <div class="min-h-screen flex justify-center items-center">
+    <div
+      class="rounded-2xl bg-white relative p-4 shadow-2xl flex flex-row justify-center items-center profileCardBackground"
+      style="width: 1100px; height: 600px;">
+      <div class="absolute z-20" style="left: -10%; top: 15">
+        <!--absolute positioned, in inner div, use percentages or calc dont use tailwind class so image position remains fixed to the background-->
+        <img src="images/illustration-box-desktop.svg" alt="illustrationBoxDekstop">
+      </div>
+      <div class="p-6 pr-28" style="margin-left: 550px;">
+        <h1 class="text-3xl text-black uppercase font-bold  w-96">FAQ</h1>
+        <div class="flex flex-col justify-between items-center border-b-2 border-lightGrayishBlue py-3">
+          <input type="radio" class="flex flex-row justify-between items-center  pb-2 w-96 cursor-pointer outline-none focus:outline-none" id="members" name="members">
+            <label for="members" class="text-sm text-darkGrayishlue font-bold">How many team members can I invite?</label>
+            <img src="images/icon-arrow-down.svg" alt="arrow" class="w-3 h-3 font-extrabold cursor-pointer">
+          </input>
+          <div class="text-darkGrayishlue text-xs mr-1 hidden">You can invite up to 2 additional users on the Free plan.
+            There is no limit on
+            team members for the Premium plan.</div>
+        </div>
+        <div class="flex flex-col justify-between items-center border-b-2 border-lightGrayishBlue py-3 group">
+          <button class="flex flex-row justify-between items-center  pb-2 w-96" id="upload">
+            <span class="text-sm text-black font-bold">What is the maximum file upload size?</span>
+            <img src="images/icon-arrow-down.svg" alt="arrow" class="w-3 h-3 font-extrabold cursor-pointer  outline-none focus:outline-none transform rotate-180">
+          </button>
+          <div class="text-darkGrayishlue text-xs mr-1 group-hover:cursor-pointer">No more than 2GB. All files in your account must fit your
+            allotted storage space.</div>
+        </div>
+        <div class="flex flex-col justify-between items-center border-b-2 border-lightGrayishBlue py-3">
+          <button class="flex flex-row justify-between items-center  pb-2 w-96" id="password">
+            <span class="text-sm text-darkGrayishlue font-bold">How do I reset my password?</span>
+            <img src="images/icon-arrow-down.svg" alt="arrow" class="w-3 h-3 font-extrabold cursor-pointer outline-none focus:outline-none">
+          </button>
+          <div class="text-darkGrayishlue text-xs mr-1 hidden">Click “Forgot password” from the login page or “Change
+            password” from your profile page.
+            A reset link will be emailed to you.</div>
+        </div>
+        <div class="flex flex-col justify-between items-center border-b-2 border-lightGrayishBlue py-3">
+          <button class="flex flex-row justify-between items-center  pb-2 w-96" id="subscription">
+            <span class="text-sm text-darkGrayishlue font-bold">Can I cancel my subscription?</span>
+            <img src="images/icon-arrow-down.svg" alt="arrow" class="w-3 h-3 font-extrabold cursor-pointer outline-none focus:outline-none">
+          </button>
+          <div class="text-darkGrayishlue text-xs mr-1 hidden">Yes! Send us a message and we’ll process your request no
+            questions asked.</div>
+        </div>
+        <div class="flex flex-col justify-between items-center border-b-2 border-lightGrayishBlue py-3">
+          <button class="flex flex-row justify-between items-center  pb-2 w-96" id="support">
+            <span class="text-sm text-darkGrayishlue font-bold">Do you provide additional support?</span>
+            <img src="images/icon-arrow-down.svg" alt="arrow" class="w-3 h-3 font-extrabold cursor-pointer outline-none focus:outline-none">
+          </button>
+          <div class="text-darkGrayishlue text-xs mr-1 hidden">Chat and email support is available 24/7. Phone lines are
+            open during normal business hours.</div>
+        </div>
 
-  How do I reset my password?
-  Click “Forgot password” from the login page or “Change password” from your profile page.
-  A reset link will be emailed to you.
-
-  Can I cancel my subscription?
-  Yes! Send us a message and we’ll process your request no questions asked.
-
-  Do you provide additional support?
-  Chat and email support is available 24/7. Phone lines are open during normal business hours.
-
+      </div>
+    </div>
+  </div>
   <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
     Coded by <a href="#">Your Name Here</a>.
   </div>
 </body>
+
 </html>
