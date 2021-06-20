@@ -871,7 +871,7 @@ body {
     padding: 1rem;
     --tw-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-    background-image:url('/images/illustration-woman-online-desktop.svg'), url('/images/bg-pattern-desktop.svg');
+    background-image:url(images/illustration-woman-online-desktop.svg), url(images/bg-pattern-desktop.svg);
     background-position: left -100px top 64px, left -540px top -308px;
     background-repeat: no-repeat, no-repeat;
     background-origin: content-box, content-box;
