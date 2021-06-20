@@ -15,7 +15,7 @@ body {
     @variants responsive {
         .lgProfileCard {
             @apply rounded-2xl bg-white relative p-4 shadow-2xl flex flex-row justify-center items-center;
-            background-image:url('../images/illustration-woman-online-desktop.svg'), url('../images/bg-pattern-desktop.svg');
+            background-image:url('/images/illustration-woman-online-desktop.svg'), url('/images/bg-pattern-desktop.svg');
             background-position: left -100px top 64px, left -540px top -308px;
             background-repeat: no-repeat, no-repeat;
             background-origin: content-box, content-box;
