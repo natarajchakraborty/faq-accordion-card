@@ -24,6 +24,9 @@ module.exports = {
         lightGrayishBlue: '#e7e7e9',
         veryDarkDesaturatedBlue: '#1d1e35',
         softRed: '#f47c57'
+      },
+      transitionProperty: {
+        'height': 'height'
       }
     },
   },
