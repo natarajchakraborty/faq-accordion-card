@@ -3,10 +3,92 @@
 @tailwind utilities;
 
 
-
-.profileCardBackground {
-    background-image:url('../images/illustration-woman-online-desktop.svg'), url('../images/bg-pattern-desktop.svg');
-    background-position: left -100px top 64px, left -540px top -308px;
-    background-repeat: no-repeat, no-repeat;
-    background-origin: content-box, content-box;
+body {
+    @apply font-body text-base12 leading-relaxed tracking-wide bg-gradient-to-b from-start to-stop bg-no-repeat min-h-screen
 }
+
+.p-container {
+    @apply min-h-screen flex justify-center items-center
+}
+
+@layer utilities {
+    @variants responsive {
+        .lgProfileCard {
+            @apply rounded-2xl bg-white relative p-4 shadow-2xl flex flex-row justify-center items-center;
+            background-image:url('../images/illustration-woman-online-desktop.svg'), url('../images/bg-pattern-desktop.svg');
+            background-position: left -100px top 64px, left -540px top -308px;
+            background-repeat: no-repeat, no-repeat;
+            background-origin: content-box, content-box;
+            width: 1100px; 
+            height: 550px;
+        }
+
+        .mdProfileCard {
+            @apply rounded-2xl bg-white relative p-4 shadow-2xl flex flex-col justify-center items-center;
+            width: 350px; 
+            height: 550px;
+        }
+
+        .box {
+            @apply absolute z-20 block;
+            left: -10%;
+        }
+
+        .lgOptions {
+            @apply p-6 pr-28;
+            margin-left: 550px;
+            width: 1100px; 
+        }
+
+        .mdOptions {
+            @apply pt-6 pb-28;
+            margin-top: 100px;
+            width: 350px; 
+        }
+
+        .lgLabels {
+            @apply text-sm text-darkGrayishlue font-bold cursor-pointer outline-none focus:outline-none w-96 flex flex-row justify-between items-center hover:text-softRed;
+        }
+
+        .mdLabels {
+            @apply text-sm text-darkGrayishlue font-bold cursor-pointer outline-none focus:outline-none w-80 flex flex-row justify-between items-center hover:text-softRed;
+        }
+
+        #accordian  input:checked ~ section.lgDesc {
+            @apply h-14;
+            width: 377px;
+        }
+
+        #accordian  input:checked ~ section.mdDesc {
+            @apply h-14;
+            width: 316px;
+            padding-right: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .lgFaq {
+            @apply text-3xl text-black uppercase font-bold w-96 text-left pl-2;
+        }
+
+        .mdFaq {
+            @apply text-3xl text-black uppercase font-bold w-96 text-center -ml-3 pl-0;
+        }
+    }
+}
+
+#accordian  section {
+    @apply text-darkGrayishlue text-xs mr-1 h-0 overflow-hidden;
+}
+
+#accordian input:checked + label > img {
+    @apply w-3 h-3 font-extrabold cursor-pointer transform rotate-180 mb-2;
+}
+
+#accordian input:checked + label  {
+    @apply text-sm text-black font-bold cursor-pointer outline-none focus:outline-none flex flex-row justify-between items-center hover:text-softRed;
+}
+
+#accordian input:checked ~ section {
+    @apply pt-3 transition-height duration-500 ease-in-out;
+}
+
